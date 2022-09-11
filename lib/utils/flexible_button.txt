@@ -1,0 +1,134 @@
+import 'package:flutter/material.dart';
+
+class FlexibleButton extends StatelessWidget {
+  const FlexibleButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        // isScrollControlled: true,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(50.0),
+                          ),
+                        ),
+                        builder: (context) {
+                          return Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20.0),
+                                child: AppLargeText(
+                                  text: 'Sign Up',
+                                  color: Color(0xff141546),
+                                  size: 20.0,
+                                ),
+                              ),
+                              Form(
+                                key: _formKey,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 25.0,
+                                        left: 25.0,
+                                        right: 25.0,
+                                        bottom: 15.0,
+                                      ),
+                                      child: TextField(
+                                        controller: emailController,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Email',
+                                          hintText: 'Email',
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                            borderSide: BorderSide(
+                                                style: BorderStyle.solid),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 25.0,
+                                        vertical: 5.0,
+                                      ),
+                                      child: TextField(
+                                        controller: passwordController,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        obscureText: true,
+                                        decoration: InputDecoration(
+                                          labelText: 'Password',
+                                          hintText: 'Password',
+                                          suffixIcon: Icon(Icons.remove_red_eye_sharp),
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                            borderSide: BorderSide(
+                                                style: BorderStyle.solid),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 25.0,
+                                        vertical: 5.0,
+                                      ),
+                                      child: TextField(
+                                        controller: passwordController,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        obscureText: true,
+                                        decoration: InputDecoration(
+                                          labelText: 'Confirm Password',
+                                          hintText: 'Confirm Password',
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(25.0),
+                                            borderSide: BorderSide(
+                                                style: BorderStyle.solid),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 50.0),
+                      child: Container(
+                        width: 250,
+                        height: 50,
+                        alignment: AlignmentDirectional.center,
+                        decoration: BoxDecoration(
+                          color: Color(0xffffd059),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                        child: AppLargeText(
+                          text: 'Get Started',
+                          color: Color(0xff101039),
+                          size: 20.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+  }
+}
